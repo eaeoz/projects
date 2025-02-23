@@ -358,6 +358,7 @@ include_once("baglan.php");
 
         $ReklamGuncelle->execute();
     }
+    $db = null;
     ?>
 
 
