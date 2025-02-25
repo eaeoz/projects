@@ -47,9 +47,14 @@ $urunler = $urunlerSorgusu->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
     </table>
     <div class="pagination">
+        <!-- Start button -->
+        <?php if ($sayfa > 1): ?>
+        <a href="?page=1">First</a>
+        <?php endif; ?>
+
         <!-- Previous page link -->
         <?php if ($sayfa > 1): ?>
-        <a href="?page=<?= $sayfa - 1 ?>">« Önceki</a>
+        <a href="?page=<?= $sayfa - 1 ?>">« Prev</a>
         <?php endif; ?>
 
         <!-- Page numbers -->
@@ -64,7 +69,12 @@ $urunler = $urunlerSorgusu->fetchAll(PDO::FETCH_ASSOC);
 
         <!-- Next page link -->
         <?php if ($sayfa < $toplamSayfa): ?>
-        <a href="?page=<?= $sayfa + 1 ?>">Sonraki »</a>
+        <a href="?page=<?= $sayfa + 1 ?>">Next »</a>
+        <?php endif; ?>
+
+        <!-- End button -->
+        <?php if ($sayfa < $toplamSayfa): ?>
+        <a href="?page=<?= $toplamSayfa ?>">Last</a>
         <?php endif; ?>
     </div>
 </body>
